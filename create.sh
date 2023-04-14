@@ -5,7 +5,7 @@ docker run -d \
 	-p 8983:8983 \
 	-p 61510:61510 \
 	--name java8 \
-	-v $(pwd)/atlas:/data/atlas \
+	-v $(pwd)/home:/root \
 	--privileged=true \
 	openjdk:8 \
-	bash -c "/data/atlas/start.sh; bash"
+	bash -c "/root/start.sh; bash"

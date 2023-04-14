@@ -3,7 +3,7 @@ sed -i 's|security.debian.org/debian-security|mirrors.ustc.edu.cn/debian-securit
 
 apt update && apt install lsof
 
-cd /data/atlas/apache-atlas-2.3.0
+cd /root/apache-atlas-2.3.0
 
 rm -rf logs
 # rm -rf data

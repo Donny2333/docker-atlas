@@ -7,17 +7,20 @@ cd /root/apache-atlas-2.3.0
 
 rm -rf logs
 # rm -rf data
+rm -rf solr/bin/solr-*.pid
+# rm -rf solr/server/solr/*_index_shard1_replica_n1
 
 hbase/bin/start-hbase.sh
 
-rm -rf solr/bin/solr-*.pid
-rm -rf solr/server/solr/*_index_shard1_replica_n1
-
 solr/bin/solr start -c -z 127.0.0.1:2181 -p 8983 -force
 
-solr/bin/solr  create -c fulltext_index -force -d conf/solr/ 
-solr/bin/solr  create -c edge_index -force -d conf/solr/   
-solr/bin/solr  create -c vertex_index -force -d conf/solr/
+solr/bin/solr delete -c fulltext_index -p 8983
+solr/bin/solr delete -c edge_index -p 8983
+solr/bin/solr delete -c vertex_index -p 8983
+
+solr/bin/solr create -c fulltext_index -force -d conf/solr/ 
+solr/bin/solr create -c edge_index -force -d conf/solr/   
+solr/bin/solr create -c vertex_index -force -d conf/solr/
 
 python3 bin/atlas_start.py
 

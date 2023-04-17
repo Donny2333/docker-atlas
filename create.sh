@@ -1,9 +1,9 @@
 docker rm -f java8
 docker run -d \
 	-it \
-	-p 21000:21000 \
 	-p 8983:8983 \
-	-p 61510:61510 \
+	-p 16010:16010 \
+	-p 21000:21000 \
 	--name java8 \
 	-v $(pwd)/home:/root \
 	--privileged=true \
